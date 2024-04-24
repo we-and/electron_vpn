@@ -11,6 +11,14 @@
         select, button { width: 100%; padding: 10px; margin-top: 10px; }
         .status { margin-top: 20px; }
     </style>
+     <script>
+        const { ipcRenderer } = require('electron');
+    
+        function openSettings() {
+            console.log("open")
+            ipcRenderer.send('open-settings-window');
+        }
+    </script>
 </head>
 <body>
     <header>
@@ -26,7 +34,8 @@
             <option>WireGuard</option>
             <option>OpenVPN</option>
         </select>
-        <button id="connect-btn">Connect</button>
+        <button id="connect-btn" onclick="openSettings()">Connect</button>
+       
         <div class="status">Status: Disconnected</div>
     </div>
 </body>
