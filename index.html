@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VPN Application</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        header { padding: 10px 0; text-align: center; }
+        .container { width: 300px; margin: 20px auto; text-align: center; }
+        select, button { width: 100%; padding: 10px; margin-top: 10px; }
+        .status { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VPN Application</h1>
+    </header>
+    <div class="container">
+        <select id="server-select">
+            <option>USA</option>
+            <option>UK</option>
+            <option>Germany</option>
+        </select>
+        <select id="protocol-select">
+            <option>WireGuard</option>
+            <option>OpenVPN</option>
+        </select>
+        <button id="connect-btn">Connect</button>
+        <div class="status">Status: Disconnected</div>
+    </div>
+</body>
+</html>
