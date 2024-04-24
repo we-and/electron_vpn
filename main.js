@@ -1,5 +1,6 @@
 
 const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('path');
 let settingsWindow;
 let mainWindow;
 function createSettingsWindow() {
@@ -14,7 +15,7 @@ function createSettingsWindow() {
 
     // Load the HTML file for the settings window
     settingsWindow.loadFile('settings.html');
-    settingsWindow.webContents.openDevTools();
+   // settingsWindow.webContents.openDevTools();
     // Clear the window when closed
     settingsWindow.on('closed', () => settingsWindow = null);
 }
@@ -26,13 +27,16 @@ function createWindow () {
         height: 600,
         webPreferences: {
             nodeIntegration: true
-        }
+          ,      preload: path.join(__dirname, 'preload.js'),
+                contextIsolation: true,  // this should be true to use contextBridge in preload script
+                enableRemoteModule: false // it is false by default from Electron 10
+              }
     });
 
     // and load the index.html of the app.
     mainWindow.loadFile('index.html');
 
-    mainWindow.webContents.openDevTools();
+//    mainWindow.webContents.openDevTools();
     // Open the DevTools.
     // mainWindow.webContents.openDevTools();
 }

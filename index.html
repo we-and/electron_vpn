@@ -12,11 +12,10 @@
         .status { margin-top: 20px; }
     </style>
      <script>
-        const { ipcRenderer } = require('electron');
     
         function openSettings() {
             console.log("open")
-            ipcRenderer.send('open-settings-window');
+            window.api.send('open-settings-window');
         }
     </script>
 </head>
